@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="DomainManagementApp.MainPage">
+    <VerticalStackLayout Spacing="20" Padding="20">
+        <!-- CollectionView to display domains in tabular form -->
+        <CollectionView x:Name="domainsCollectionView" 
+                        ItemsSource="{Binding Domains}"
+                        SelectionMode="None">
+            <CollectionView.Header>
+                <Grid ColumnDefinitions="*,*,*,*,*,*,*,*">
+                    <Label Text="ID" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                    <Label Text="Domain Name" Grid.Column="1" HorizontalTextAlignment="Center"/>
+                    <Label Text="Owner" Grid.Column="2" HorizontalTextAlignment="Center"/>
+                    <Label Text="Start Date" Grid.Column="3" HorizontalTextAlignment="Center"/>
+                    <Label Text="Expiry Date" Grid.Column="4" HorizontalTextAlignment="Center"/>
+                    <Label Text="30 Days" Grid.Column="5" HorizontalTextAlignment="Center"/>
+                    <Label Text="7 Days" Grid.Column="6" HorizontalTextAlignment="Center"/>
+                    <Label Text="Redemption" Grid.Column="7" HorizontalTextAlignment="Center"/>
+                </Grid>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,*,*,*,*,*,*,*">
+                        <Label Text="{Binding Id}" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding Name}" Grid.Column="1" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding Owner}" Grid.Column="2" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding StartDate, StringFormat='{0:yyyy-MM-dd}'}" Grid.Column="3" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding ExpiryDate, StringFormat='{0:yyyy-MM-dd}'}" Grid.Column="4" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding ThirtyDays}" Grid.Column="5" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding SevenDays}" Grid.Column="6" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding InRedemption}" Grid.Column="7" HorizontalTextAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- SearchBar for searching domains -->
+        <SearchBar x:Name="searchBar" Placeholder="Search for domain or owner" 
+                   TextChanged="SearchBar_TextChanged"/>
+
+        <!-- Buttons for actions -->
+        <HorizontalStackLayout>
+            <Button Text="Refresh" Clicked="OnRefreshClicked" HorizontalOptions="Start"/>
+            <Button Text="Exit" Clicked="OnExitClicked" HorizontalOptions="End"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

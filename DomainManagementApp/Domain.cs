@@ -1,4 +1,7 @@
-﻿using System;
+//Author: Dan Kabagambe
+//Version: 1.0.0.0
+//Copyright © 2024 Dan Kabagambe
+using System;
 
 namespace DomainManagementApp
 {

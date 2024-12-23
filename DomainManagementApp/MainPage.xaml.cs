@@ -1,4 +1,8 @@
-﻿using Microsoft.Maui.Controls;
+//Author: Dan Kabagambe
+//Version: 1.0.0.0
+//Copyright © 2024 Dan Kabagambe
+
+using Microsoft.Maui.Controls;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
